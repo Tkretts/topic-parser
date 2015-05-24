@@ -4,6 +4,10 @@ setup(
     name='topic_parser',
     version='1.0',
     packages=['', 'src'],
+    install_requires=[
+       'PyYAML',
+       'lxml',
+    ],
     url='https://github.com/Tkretts/topic-parser',
     license='',
     author='Topsy Kretts',
