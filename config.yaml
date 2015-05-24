@@ -1,0 +1,22 @@
+## Topic Parser settings
+
+proxy_settings:
+  http: http://user:pass@proxy:port/
+  https: https://user:pass@proxy:port/
+
+line_length: 80
+
+templates:
+  default:
+    class: 'content'
+
+  lenta.ru:
+    class: 'b-topic__content'
+
+  gazeta.ru:
+    class: 'text'
+    header_class: 'article_name'
+
+  lifenews.ru:
+    class: 'note'
+    header_class: ''
