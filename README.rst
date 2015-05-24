@@ -18,7 +18,4 @@ Config options:
   Script gets current template from specified url
   or 'default' template by default.
 
-  proxy_settings: You also can set up a proxy settings if you want some:
-    http: 'http://user:pass@proxy:port'
-    https: 'https://user:pass@proxy:port'
-
+  proxy_settings: You also can set up a proxy settings if you want some
