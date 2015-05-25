@@ -25,6 +25,7 @@ def split_by_length(line, length):
         # Split word if it more than length
         new_line += u'\n'.join(
             word[0+i:length+i] for i in range(0, len(word), length)) + ' '
+    lines.append(new_line)
     return lines
 
 
@@ -142,7 +143,7 @@ class Topic(object):
         for line in self.text_content:
             if line:
                 printable_view.extend(self.processed_body_line(line))
-                printable_view.append('\n')
+                printable_view.append('\n\n')
 
         return printable_view
 
@@ -157,8 +158,11 @@ class Topic(object):
             req = urllib2.urlopen(self.url)
             if req.code == 200:
                 content = req.read()
-                # self.page = html.parse(req).getroot()
-                self.page = html.document_fromstring(content.decode('utf-8'))
+                try:
+                    decoded_content = content.decode('utf-8')
+                except UnicodeDecodeError:
+                    decoded_content = content
+                self.page = html.document_fromstring(decoded_content)
         except urllib2.URLError:
             self.page = html.etree.Element("html")
 
